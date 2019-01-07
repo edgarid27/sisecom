@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" href="img/icosecom.ico"/>
+    <meta name="author" content="Edgar Felipe Hernandez Garcia - TeamScrlet"/>
+    <meta charset="utf-8"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
+    <script lang="javascript" type="text/javascript">
+    function run()
+     {
+        var pdf = new jsPDF('L', 'mm', 'letter', true, 'UTF-8', false),
+        source = $('#imagen')[0],
+        margins = {
+            top: 10,
+            bottom: 10,
+            left: 10,
+            right: 10,
+            width: 522
+        };
+
+    pdf.fromHTML(
+            source,
+            margins.left,
+            margins.top,
+            {
+            'width': margins.width 
+            },
+            function (dispose) {
+                pdf.save('Test.pdf');
+            },
+            margins
+       );
+    };
+    </script>
+	<title>Prueba de Div</title>
+</head>
+
+<body>
+    <style>
+    /*
+        #divall
+        {
+            width: 100%;
+            min-height: 100%;
+            height: auto !important;
+            position: fixed;
+            top:0;
+            left:0;
+            background: white;
+        }
+  
+        .divsuperior1
+        {
+            height: 25% !important;
+            width: 33.33% !important;
+            position: fixed;
+            top:0;
+            left:0;
+            background-color: white;
+        }
+
+        .divsuperior2
+        {
+            height: 25% !important;
+            width: 33.33% !important;
+            position: fixed;
+            margin-left: 33.33%;
+            top:0;
+            left:0;
+            background-color: white;
+        }
+        .divsuperior3
+        {
+            height: 25% !important;
+            width: 30% !important;
+            position: fixed;
+            margin-left: 66.66%;
+            top:0;
+            left:0;
+            background-color: white;
+        }
+
+        .divsuperior4
+        {
+            height: 25% !important;
+            width: 3.33% !important;
+            position: fixed;
+            margin-left: 66.66%;
+            top:0;
+            left:0;
+            background-color: white;
+        }
+
+        .intermediosup1
+        {
+            height: 25% !important;
+            width: 3.4% !important;
+            position: fixed;
+            top: 25%;
+            left:0;
+            background-color: white;
+        }
+
+        .intermediosup
+        {
+            height: 25% !important;
+            width: 96.9% !important;
+            position: fixed;
+            top: 25%;
+            left:3.4%;
+            background-color: white;
+        }
+
+        .intermediosup2
+        {
+            height: 25% !important;
+            width: 4% !important;
+            position: fixed;
+            top: 25%;
+            left:96.9%;
+            background-color: white;
+        }        
+
+        .intermedioinf1
+        {
+            height: 25% !important;
+            width: 3.4% !important;
+            position: fixed;
+            top: 50%;
+            left:0;
+            background-color: white;
+        }
+
+        .intermedioinf
+        {
+            height: 25% !important;
+            width: 96.9% !important;
+            position: fixed;
+            top: 50%;
+            left:3.4%;
+            background-color: white;
+        }
+
+        .intermedioinf2
+        {
+            height: 25% !important;
+            width: 6% !important;
+            position: fixed;
+            top: 50%;
+            left:96.9%;
+            background-color: white;
+        }
+
+        .inferior
+        {
+            height: 25% !important;
+            width: 100% !important;
+            position: fixed;
+            top: 75%;
+            left:0;
+            background-color: white;
+        }
+  */
+  /*
+        .imagensecom
+        {
+            position: relative; */ /*hace que muevas relativamente su posición
+            left: 20px;   Pixeles a la derecha de su posición natural*/ /* 
+            top: 40px;
+            border-style: ridge;
+            border-width:3px;
+            border-color: black;
+            height: 20px;
+            width: 80px;
+        }
+
+        .txtcentro1
+        {
+            text-align: center;
+            font-family: arial;
+            font-size: 12px;
+        }
+
+        .txtcentro2
+        {
+            text-align: center;
+            font-family: arial;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .txtcentro3
+        {
+            text-align: center;
+            font-family: arial;
+            font-size: 13px;
+        }
+
+        .txtcentro4
+        {
+            text-align: center;
+            font-family: arial;
+            font-size: 22px;
+            font-weight: bolder;
+        }
+
+        .lh1
+        {
+            line-height: 7px;
+        }
+
+        .lh2
+        {
+            line-height: 50px;
+        }
+
+        .txtderecha1
+        {
+            line-height: 10px;
+            text-align: right;
+        }
+
+        .txtderecha2
+        {
+            text-align: right;
+        }
+
+        td 
+        {
+            margin: 5px;
+            padding: 5px;
+            height: 14px;
+        }
+
+        table 
+        {
+            border-collapse: collapse;
+            position: relative;
+            top: 12%;
+        }
+
+        .ttable
+        {
+            width: 96.2%;
+        }
+
+        caption
+        {
+            text-align: bottom;
+            height: 25px;
+            background-color: #575555;
+            
+        }
+
+        table, th, td 
+        {
+            border: 1px solid black;
+            font-weight: bold;
+            font-family: arial;
+        }
+
+        .largo
+        {
+            width: 91.55%
+        }
+
+        .razon
+        {
+            width: 20%;
+        }
+
+        .fecha
+        {
+            width: 4%;
+        }
+
+        .modelo
+        {
+            width: 6%;
+        }
+
+        .serie
+        {
+            width: 6%;
+        }
+
+        .producto
+        {
+            width: 7%;
+        }
+
+        .ec
+        {
+            width: 5%;
+        }
+
+        .lcaption
+        {
+            width: 100%;
+        } 
+  
+        h3
+        {
+            font-size: 18px;
+            font-family: arial;
+            font-weight: bold;
+        }
+
+        h4
+        {
+            font-size: 11px;
+            font-family: arial;
+            text-align: center;
+            font-weight: normal;
+            border-width:1px;
+        }
+
+        h5
+        {
+            font-size: 16px;
+            font-family: arial;
+            text-align: center;
+            font-weight: normal;
+
+        }
+*/
+    .sep1
+    {
+        position: fixed;
+        height: 400px;
+        width: 240px;
+        left: 20px;
+    }
+    .sep2
+    {
+        position: fixed;
+        left: 240px;
+        height: 400px;
+        width: 240px;
+    }
+
+    .sep3
+    {
+        position: fixed;
+        left: 20px;
+        top: 400px;
+        height: 120px;
+        width: 240px;
+    }
+
+
+    </style>
+    <div id="imagen">
+        <img src="img/logo-dark.png" border="1px" class=" imagensecom" height="25px" width="60px" />
+    </div>
+        
+    <div id="datossecom">
+        <p class="txtcentro1 lh1">Silvia Castillo Armendáriz</p>
+        <p class="txtcentro1 lh1">Av. José Fco. Ortiz Nº 380</p>
+        <p class="txtcentro2 lh1">Col. Margaritas C.P. 27130 info@secom.tv</p>
+        <p class="txtcentro3 lh1">Torreón, Coahuila 871-7127155 / 7110325</p>
+        <p class="txtcentro2 lh1">www.secom.tv</p>
+        <ul></ul>
+        <p class="txtcentro4 lh2">RMA</p>
+    </div>        
+
+        
+        <br />
+        <p class="txtderecha1">NUMERO DE ORDEN:_____________  </p>
+        <P class="txtderecha2">NUMERO DE ID:_____________  </P>
+        
+
+        <div class="sep3">
+            <table border="1">
+                <caption>DATOS DEL CLIENTE</caption>
+                <tbody>
+                    <tr>
+                        <td><CENTER>COMPAÑIA</CENTER></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td><CENTER>DIRECCION</CENTER></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td><CENTER>CONTACTO</CENTER></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td><CENTER>TELEFONO</CENTER></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <table class="ttable">
+            <caption>DATOS DEL EQUIPO</caption>
+            <thead>
+                <tr>
+                    <th>PRODUCTO</th>
+                    <th>MODELO</th>
+                    <th>SERIE</th>
+                    <th>DESCRIPCION DE LA FALLA</th>
+                    <th>FECHA INGRESO</th>
+                    <th>FECHA ENVIO</th>
+                    <th>FECHA REGRESO</th>
+                    <th>FECHA INSTALACION</th>
+                    <th>E.C.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="lr">
+                    <td class="producto"></td>
+                    <td class="producto"></td>
+                    <td class="producto"></td>
+                    <td class="razon"></td>
+                    <td class="fecha"></td>
+                    <td class="fecha"></td>
+                    <td class="fecha"></td>
+                    <td class="fecha"></td>
+                    <td class="ec"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <br />
+        <h3>PROVEEDOR:__________________________________________</h3>
+
+
+        <h4>COMPUTO  REDES  TELECOMUNICACIONES  WEB  ENREGIA SISTEMAS DE SEGURIDAD  MONITOREO INFRAESTRUCTURA SOPORTE IT</h4>
+        <h5>info@secom.tv</h5>
+        <button id="cmd" onclick="run()">generate PDF</button>   
+</body>
+</html>
